@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>LAMA ANIMATION</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- Main -->
+    <section id="main">
+
+        <!-- Banner -->
+        <section id="banner">
+            <div class="inner">
+                <h1>Hey, I'm LaMa</h1>
+                <p>You should find me </p>
+                <ul class="actions">
+                    <li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="galleries">
+
+            <!-- Photo Galleries -->
+            <div class="gallery">
+                <div class="content">
+                    <div class="media">
+                        <a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt=""
+                                                           title="Find the Lama" id="lama"
+                                                           onmouseover="PlaySound('mySound')"
+                                                           onmouseout="StopSound('mySound')"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+                    <div class="media">
+                        <a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt=""
+                                                           title="Find the Lama"/></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </section>
+</div>
+
+<!-- Scripts -->
+
+<script>
+    var item = document.querySelector("#lama");
+    var timerID;
+    var counter = 0;
+    var pressHoldEvent = new CustomEvent("pressHold");
+    // Increase or decreae value to adjust how long
+    // one should keep pressing down before the pressHold
+    // event fires
+    var pressHoldDuration = 300;
+    item.addEventListener("mousedown", pressingDown, false);
+    item.addEventListener("mouseup", notPressingDown, false);
+    item.addEventListener("mouseleave", notPressingDown, false);
+
+    item.addEventListener("touchstart", pressingDown, false);
+    item.addEventListener("touchend", notPressingDown, false);
+    item.addEventListener("pressHold", doSomething, false);
+    function pressingDown(e) {
+        requestAnimationFrame(timer);
+        e.preventDefault();
+        console.log("Pressing!");
+    }
+    function notPressingDown(e) {
+        // Stop the timer
+        cancelAnimationFrame(timerID);
+        counter = 0;
+    }
+    function timer() {
+        console.log("Timer tick!");
+
+        if (counter < pressHoldDuration) {
+            timerID = requestAnimationFrame(timer);
+            counter++;
+
+        } else {
+            console.log("Press threshold reached!");
+            item.dispatchEvent(pressHoldEvent);
+        }
+    }
+    function doSomething(e) {
+        window.location.replace('/nuit%20d\'info%20panata/lama_welcome.html');
+    }
+    function PlaySound(soundobj) {
+        var audio = new Audio('assets/lamasound.mp3');
+        audio.play();
+    }
+
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

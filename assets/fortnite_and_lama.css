@@ -1,0 +1,144 @@
+@font-face {
+    font-family: BurbankBigCondensed-Black;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cors-anywhere.herokuapp.com/https://static-assets-prod.epicgames.com/fortnite/static/webpack/c5d323c99493dd76432d4f531b8cc329.woff) format("woff");
+}
+body{
+    height: 100vh;
+    background-color: #019be3;
+}
+.transform {
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    transition: all 2s ease;
+}
+.transform-active {
+    display: none;
+}
+.transformlama-active {
+    display: inline-block;
+}
+.scale{
+    display: none;
+}
+
+#fortnite-winner {
+    font-family: BurbankBigCondensed-Black;
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 870px;
+    height: 120px;
+    line-height: 120px;
+    margin-top: 10%;
+}
+#fortnite-winner:before {
+    content: "Victory Royale!";
+    opacity: 0.8;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 74px;
+    text-align: center;
+    color: #fff;
+    background-color: #457db6;
+    clip-path: polygon(0% 0%, 75.5% 5.8%, 76.2% 11.6%, 88.96% 10%, 91% 16.66%, 91.95% 7.5%, 100% 5%, 97.45% 100%, 72.41% 96.67%, 71.49% 91.67%, 70.46% 95.83%, 39.66% 93.33%, 38.16% 100%, 1.61% 95.83%);
+}
+#fortnite-winner:after {
+    content: "#1";
+    color: #f4fe7b;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: rotate(-10deg);
+    font-size: 200px;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.lama{
+    display: none;
+    width: 22%;
+    height: 60%;
+    position: absolute;
+    transition: transform 1s;
+    top: 37%;
+    left: 38%;
+}
+#lame-scale:hover {
+    transform: scale(2.0)
+}
+.anim{
+     -webkit-animation: lama_anim 18s ease;
+     animation: myfirst 18s ease;
+ }
+@keyframes lama_anim {
+    0% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(2.0);
+    }
+}
+
+
+.fortnite-btn {
+    top: 40%;
+    left: 42%;
+    position: absolute;
+    font-size: 1.75em;
+    color: #fff;
+    margin: 0 auto;
+    background: transparent;
+    color: #000;
+    font-weight: 900;
+    font-family: "roboto", sans-serif;
+    text-transform: uppercase;
+    width: 250px;
+    padding: 18px 0;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.fortnite-btn:hover:after {
+    background-color: #eeea4c;
+}
+
+.fortnite-btn span {
+    position: relative;
+    z-index: 100;
+    background-color: #f0ed63;
+}
+
+.fortnite-btn:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    transition: background-color .3s ease-in-out;
+    box-shadow: 0 4px 12px -4px rgba(0,0,0,.5);
+    animation: jelly 6s ease-in-out infinite;
+    transform-origin: 50% 50% 20px;
+    background-color: #f0ed63;
+}
+
+@keyframes jelly {
+    0% {
+        transform: perspective( 180px) rotateY( 5deg);
+    }
+
+    50% {
+        transform: perspective( 180px) rotateY( -5deg);
+    }
+
+    100% {
+        transform: perspective( 180px) rotateY( 5deg);
+    }
+}
+

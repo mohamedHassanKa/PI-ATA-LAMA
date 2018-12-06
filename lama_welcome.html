@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/fortnite_and_lama.css">
+
+</head>
+<body>
+
+
+    <span id="fortnite-winner"></span>
+    <div class="fortnite-btn transform" id="button">
+        <span>Congratz</span>
+    </div>
+    <img src="images/fulls/lamaa.png" id="lame-scale" class="lama">
+
+
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        $("#button").click(function() {
+            $('.transform').toggleClass('transform-active');
+            document.getElementById("lame-scale").style.display = 'block' ;
+            $(".lama").addClass(".anim");
+
+        });
+    </script>
+
+
+</body>
+</html>
